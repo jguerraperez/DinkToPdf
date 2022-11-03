@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Collections.Generic;
+
 using DinkToPdf.Contracts;
 using DinkToPdf.EventDefinitions;
-using System.Globalization;
 
 namespace DinkToPdf
 {

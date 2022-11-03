@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.IO;
-using DinkToPdf;
 
-namespace DinkToPdf.ConsoleApp
+using DinkToPdf;
+using DinkToPdf.EventDefinitions;
+
+namespace DinkToPfd.TestConsoleApp
 {
     public class Program
     {
@@ -40,7 +39,7 @@ namespace DinkToPdf.ConsoleApp
                     }
                 }
             };
-            
+
             byte[] pdf = converter.Convert(doc);
 
             if (!Directory.Exists("Files"))
@@ -52,31 +51,30 @@ namespace DinkToPdf.ConsoleApp
             {
                 stream.Write(pdf, 0, pdf.Length);
             }
-           
             Console.ReadKey();
         }
 
-        private static void Converter_Error(object sender, EventDefinitions.ErrorArgs e)
+        private static void Converter_Error(object sender, ErrorArgs e)
         {
             Console.WriteLine("[ERROR] {0}", e.Message);
         }
 
-        private static void Converter_Warning(object sender, EventDefinitions.WarningArgs e)
+        private static void Converter_Warning(object sender, WarningArgs e)
         {
             Console.WriteLine("[WARN] {0}", e.Message);
         }
 
-        private static void Converter_Finished(object sender, EventDefinitions.FinishedArgs e)
+        private static void Converter_Finished(object sender, FinishedArgs e)
         {
             Console.WriteLine("Conversion {0} ", e.Success ? "successful" : "unsucessful");
         }
 
-        private static void Converter_ProgressChanged(object sender, EventDefinitions.ProgressChangedArgs e)
+        private static void Converter_ProgressChanged(object sender, ProgressChangedArgs e)
         {
             Console.WriteLine("Progress changed {0}", e.Description);
         }
 
-        private static void Converter_PhaseChanged(object sender, EventDefinitions.PhaseChangedArgs e)
+        private static void Converter_PhaseChanged(object sender, PhaseChangedArgs e)
         {
             Console.WriteLine("Phase changed {0} - {1}", e.CurrentPhase, e.Description);
         }

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
-using DinkToPdf.Contracts;
-using System.IO;
 
 namespace DinkToPdf.TestWebServer.Controllers
 {
-    [Route("api/[controller]")]
-    public class ConvertController : Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class ConvertController : ControllerBase
     {
         private IConverter _converter;
 
@@ -37,11 +33,11 @@ namespace DinkToPdf.TestWebServer.Controllers
                      new ObjectSettings()
                     {
                         Page = "https://github.com/",
-                         
+
                     }
                 }
             };
-           
+
             byte[] pdf = _converter.Convert(doc);
 
 

@@ -1,8 +1,4 @@
 ﻿using DinkToPdf.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DinkToPdf
 {
@@ -20,8 +16,6 @@ namespace DinkToPdf
 
     public class GlobalSettings : ISettings
     {
-        
-
         private MarginSettings margins = new MarginSettings();
 
         /// <summary>

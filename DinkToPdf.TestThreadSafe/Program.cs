@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using DinkToPdf;
 
 namespace DinkToPdf.TestThreadSafe
 {
@@ -14,7 +11,7 @@ namespace DinkToPdf.TestThreadSafe
         public static void Main(string[] args)
         {
             converter = new SynchronizedConverter(new PdfTools());
-            
+
             var doc = new HtmlToPdfDocument()
             {
                 GlobalSettings = {
@@ -31,7 +28,7 @@ namespace DinkToPdf.TestThreadSafe
             };
 
             Task.Run(() => Action(doc));
-            
+
             var doc2 = new HtmlToPdfDocument()
             {
                 GlobalSettings = {

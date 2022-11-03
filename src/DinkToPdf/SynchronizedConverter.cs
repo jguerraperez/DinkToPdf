@@ -1,9 +1,9 @@
-﻿using DinkToPdf.Contracts;
-using System;
+﻿using System;
 using System.Threading;
-using System.Collections.Concurrent;
-using System.Reflection;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
+
+using DinkToPdf.Contracts;
 
 namespace DinkToPdf
 {
